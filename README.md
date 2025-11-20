@@ -371,3 +371,10 @@ A pesar de las **dificultades técnicas** —como incompatibilidades con MediaPi
 Kubernetes (también conocido como K8s) es una plataforma open-source diseñada para automatizar el despliegue, escalado, y administración de aplicaciones en contenedores.
 Fue desarrollada originalmente por Google y ahora es mantenida por la Cloud Native Computing Foundation (CNCF).
 Su objetivo principal es facilitar la gestión de contenedores en entornos de producción, especialmente cuando son muchos.
+
+------------
+
+### 🧩 Definición
+
+Kubernetes es un orquestador de contenedores que se encarga de distribuir, ejecutar, monitorear y escalar aplicaciones que están empaquetadas en contenedores (como Docker).
+Permite administrar múltiples contenedores de forma coordinada, confiable y automatizada.
