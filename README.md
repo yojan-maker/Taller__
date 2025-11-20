@@ -422,3 +422,10 @@ Kubernetes no crea contenedores, sino que los orquesta.
 En pocas palabras:
 
 Docker crea los contenedores; Kubernetes los organiza, automatiza y escala.
+
+------------
+
+
+## 🐳 Cómo crear contenedores con Docker — Paso a paso y conceptos clave
+
+En esta sección encontrarás una guía clara y práctica para crear contenedores usando Docker, con un ejemplo sencillo, comandos útiles y la explicación de los conceptos más importantes.
