@@ -392,3 +392,17 @@ Permite administrar múltiples contenedores de forma coordinada, confiable y aut
 | **Gestión declarativa**                     | Todo se maneja con archivos YAML donde defines *qué quieres* que pase, y Kubernetes se encarga.      |
 | **Portabilidad**                            | Funciona en la nube, servidores locales o entornos híbridos.                                         |
 | **Escalado horizontal**                     | Fácilmente puedes tener más instancias de tus aplicaciones según lo necesites.                       |
+
+------------
+
+## 🛠️ Aplicaciones de Kubernetes
+
+Kubernetes se usa ampliamente en entornos modernos de desarrollo y producción:
+
+- 🧪 Microservicios
+- 📦 Aplicaciones basadas en contenedores (Docker)
+- ☁️ Despliegues en la nube (AWS, GCP, Azure)
+- 🔄 Integración continua (CI/CD)
+- 🏭 Automatización de despliegue en entornos empresariales
+- 📡 Aplicaciones distribuidas a gran escala
+- 🧠 Sistemas de inteligencia artificial y análisis de datos
