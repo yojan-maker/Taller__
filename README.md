@@ -493,3 +493,20 @@ Desde la carpeta mi-app/:
 - -p 5000:5000 mapea el puerto del contenedor al host.
 - --rm elimina el contenedor al detenerlo.
 - Accede en tu navegador: http://localhost:5000
+
+------------
+
+### 📚 Conceptos clave de Docker
+
+|                Concepto | Qué es / Por qué importa                                                                                       |
+| ----------------------: | -------------------------------------------------------------------------------------------------------------- |
+|              **Imagen** | Plantilla inmutable que contiene la app + dependencias (como un snapshot). Se construye desde un `Dockerfile`. |
+|          **Contenedor** | Instancia ejecutable de una imagen. Es efímero: puedes crear, ejecutar y destruir contenedores.                |
+|          **Dockerfile** | Archivo con instrucciones que Docker usa para construir una imagen (COPY, RUN, CMD, EXPOSE, etc.).             |
+| **Registro (Registry)** | Servicio donde se almacenan imágenes (Docker Hub, GitHub Container Registry, registro privado).                |
+|                 **Tag** | Versión o etiqueta de una imagen (`:1.0`, `:latest`). Facilita versionado y despliegue.                        |
+|             **Volumen** | Mecanismo para persistir datos fuera del contenedor (para bases de datos, logs, etc.).                         |
+|               **Redes** | Permiten comunicar contenedores entre sí o con el host.                                                        |
+|        **Capa (layer)** | Cada instrucción del Dockerfile crea una capa; Docker las cachea para acelerar builds.                         |
+|   **Contexto de build** | Archivos que Docker puede acceder durante `docker build` (normalmente la carpeta donde ejecutas el comando).   |
+|       **.dockerignore** | Archivo que evita que archivos innecesarios entren al contexto de build (similar a `.gitignore`).              |
