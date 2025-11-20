@@ -429,3 +429,13 @@ Docker crea los contenedores; Kubernetes los organiza, automatiza y escala.
 ## 🐳 Cómo crear contenedores con Docker — Paso a paso y conceptos clave
 
 En esta sección encontrarás una guía clara y práctica para crear contenedores usando Docker, con un ejemplo sencillo, comandos útiles y la explicación de los conceptos más importantes.
+
+------------
+
+
+### 🔧 Resumen rápido
+
+1. Crear una pequeña aplicación (ejemplo: Python/Flask).
+2. Escribir un Dockerfile que describa cómo construir la imagen.
+3. Construir la imagen con docker build.
+4. Ejecutar un contenedor con docker run.
