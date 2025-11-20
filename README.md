@@ -439,3 +439,57 @@ En esta sección encontrarás una guía clara y práctica para crear contenedore
 2. Escribir un Dockerfile que describa cómo construir la imagen.
 3. Construir la imagen con docker build.
 4. Ejecutar un contenedor con docker run.
+
+------------
+
+
+### 🧩 Ejemplo práctico — Aplicación simple en Python (Flask)
+
+1) Estructura del proyecto
+
+mi-app/ ├── app.py ├── requirements.txt └── Dockerfile
+
+app.py
+
+    from flask import Flask app = Flask(__name__) @app.route("/") def hello(): return "¡Hola desde Docker! 🚀" if __name__ == "__main__": app.run(host="0.0.0.0", port=5000)
+
+requirements.txt
+
+    Flask==2.2.5
+
+Dockerfile
+
+    # Imagen base
+    FROM python:3.11-slim
+    
+    # Directorio de trabajo
+    WORKDIR /app
+    
+    # Copiar dependencias y aplicacion
+    COPY requirements.txt .
+    RUN pip install --no-cache-dir -r requirements.txt
+    
+    COPY app.py .
+    
+    # Exponer puerto y comando por defecto
+    
+    EXPOSE 5000
+    CMD ["python", "app.py"]
+
+2) Construir la imagen
+
+Desde la carpeta mi-app/:
+
+    docker build -t miusuario/mi-app:1.0 .
+
+
+- -t miusuario/mi-app:1.0 etiqueta la imagen (user/repo).
+- El . indica el contexto (carpeta actual).
+
+3) Ejecutar el contenedor
+
+    docker run --rm -p 5000:5000 miusuario/mi-app:1.0
+
+- -p 5000:5000 mapea el puerto del contenedor al host.
+- --rm elimina el contenedor al detenerlo.
+- Accede en tu navegador: http://localhost:5000
