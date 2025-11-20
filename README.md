@@ -1,3 +1,161 @@
+# 📝 README — Punto: Simulación de robots SoftBank con `humanoid-gym` + Docker
+
+## 📌 Introducción
+
+En este punto del laboratorio se solicitó:
+
+> **“Desarrollar la simulación de los robots de SoftBank Robotics del repositorio denominado `humanoid-gym` y desplegarlos en Docker.”**
+
+Los robots involucrados en el proyecto de simulación son:
+
+* **Pepper**
+* **Nao**
+* **Romeo**
+* **Dancer**
+
+Todos ellos supuestamente simulables mediante el proyecto de GitHub:
+
+🔗 [https://github.com/0aqz0/humanoid-gym](https://github.com/0aqz0/humanoid-gym)
+
+Sin embargo, al intentar utilizar y dockerizar este repositorio, fue necesario realizar una **revisión técnica** debido a múltiples errores
+
+
+Se detallara:
+
+* **✔ Qué se intentó**
+* **✔ Qué errores aparecieron**
+* **✔ Por qué no funciona**
+* **✔ Qué limitaciones técnicas existen**
+
+---
+
+## 🧩 1. ¿Qué es `humanoid-gym`?
+
+`humanoid-gym` es un repositorio creado hace varios años (**último *commit* hace 4 años**) que promete ofrecer **entornos Gym** basados en **PyBullet** para robots humanoides de SoftBank.
+
+Incluye:
+* Archivos **URDFs** de Pepper, Nao, Romeo y Dancer.
+* *Scripts* para crear entornos Gym con acciones y observaciones.
+* Ejemplos de uso con PyBullet.
+
+Sin embargo, el repositorio **NO se ha actualizado** desde:
+* Python **3.6 / 3.7**
+* Gym **0.15**
+* PyBullet de **2019**
+* Versiones antiguas de GLFW, mesa, etc.
+
+---
+
+## ❗ 2. Por qué no funciona hoy en 2025
+
+Durante el taller se intentó ejecutar y dockerizar el proyecto usando:
+
+* Ubuntu **22.04 / 24.04** base
+* Python **3.11**
+* PyBullet **reciente**
+* Gym **actual**
+* Docker moderno
+
+Y los errores se repitieron cada vez, incluso con distintas variantes del `Dockerfile`.
+
+Los problemas principales fueron:
+
+### 🚫 Problema 1 — Dependencias del sistema obsoletas
+
+El repositorio requiere librerías del sistema que ya **NO existen** en las versiones modernas de Ubuntu:
+
+**Ejemplos:**
+* `libgl1-mesa-glx`
+* `libosmesa6`
+* `libglfw3`
+* *Drivers* *dummy* para OpenGL
+* Viejas versiones de `mesa-utils`
+
+Muchos paquetes fueron **eliminados o renombrados** → el *build* falla en la etapa de instalación de librerías del sistema.
+
+### 🚫 Problema 2 — PyBullet cambió completamente
+
+Las versiones nuevas de PyBullet introducen cambios drásticos que rompen la compatibilidad con el código antiguo:
+
+* Cambiaron funciones de inicialización.
+* Requieren **EGL / OSMesa modernos** para la renderización sin cabecera (headless).
+* Cambiaron la forma en que Gym registra entornos.
+* Eliminan soporte para versiones antiguas de OpenGL *dummy*.
+
+### 🚫 Problema 3 — Gym dejó de soportar ese API
+
+El repositorio usa la forma antigua de registrar y usar entornos: `gym.make('pepper-v0')`.
+
+Pero Gym (versiones superiores a 0.26) requiere:
+* Registro explícito.
+* Uso de *spaces* nuevos.
+* API `step()` diferente (ahora retorna **5 valores**).
+
+> Esto causa errores de tipo: `TypeError: step() takes 4 positional arguments but 5 were given`
+
+### 🚫 Problema 4 — Dependencias Python incompatibles
+
+El comando `pip install -e .` intenta instalar dependencias que ya no existen o son incompatibles con Python moderno:
+
+* `gym==0.15`
+* `pybullet==2.5.5`
+* `numpy<1.16`
+* `setuptools` antiguo
+
+Esto produce una **cascada de fallos en pip** y en el entorno de Python.
+
+### 🚫 Problema 5 — El repositorio NO incluye el código completo
+
+La estructura interna del repositorio está incompleta o mal referenciada:
+
+* No trae los **URDF originales de SoftBank**.
+* Las carpetas `pepper` / `nao` están solo **parcialmente definidas**.
+* Las imágenes de previsualización existen, pero los modelos (archivos URDF/SDF completos) no.
+* Falta la carpeta de *assets* interna de `qibullet` (la librería de simulación real).
+
+## ✔ Qué se intentó
+
+Durante el taller se intentaron varias estrategias para mitigar los problemas del repositorio obsoleto:
+
+### 1. Clonación y Reorganización del Proyecto
+* **✔ Clonación del repo:** `git clone https://github.com/0aqz0/humanoid-gym`
+* **✔ Reorganización del proyecto:**
+    * Se crearon estructuras limpias para el proyecto con el fin de aislar la simulación:
+        * `app/`
+        * `robots/`
+        * `docker/`
+        * `assets/`
+
+### 2. Personalización de Dependencias
+* **✔ `Requirements` personalizados:**
+    * Se intentó forzar el uso de versiones de librerías que podrían ser compatibles con Python moderno, incluyendo:
+        * **PyBullet** (varias versiones)
+        * **Gym retro**
+        * **`glfw`**
+        * **`numpy`** (versiones antiguas específicas)
+
+### 3. Pruebas de Despliegue en Docker
+* **✔ Varios `Dockerfiles` probados:**
+    * Se utilizaron distintas imágenes base de Docker para el *build*:
+        * `python:3.11-slim`
+        * `python:3.10`
+        * `ubuntu:22.04` + instalación manual de Python
+
+> **Resultado:** Todas las variantes de Dockerfiles reproducían los errores de dependencias mencionados previamente.
+
+### 4. Entorno local
+* **✔ Se intentó recrear el entorno sin Docker:**
+    * Incluso en un entorno local (fuera de Docker), configurando manualmente las versiones de librerías, el proyecto **tampoco funcionó**, confirmando que la incompatibilidad es inherente al código obsoleto.
+
+---
+
+## 🧨 4. Conclusión Técnica
+
+Tras múltiples pruebas de ejecución y dockerización en entornos modernos:
+
+> **Este repositorio está obsoleto y no puede ser ejecutado en sistemas modernos.** Tampoco puede ser dockerizado de forma efectiva porque sus dependencias están rotas, eliminadas o son incompatibles con las versiones actuales de PyBullet y Gym.
+
+
 # 📌 PUNTO 2 — Desarrollo de un Algoritmo de Segmentación
 ---
 
