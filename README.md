@@ -1,8 +1,4 @@
 # 📌 PUNTO 2 — Desarrollo de un Algoritmo de Segmentación
-
-(Multímetros, Osciloscopios, Raspberry Pi)
-Taller 7 — Sistemas Digitales III · **Ubuntu Linux**
-
 ---
 
 Este punto del taller consistió en desarrollar un sistema completo capaz de:
