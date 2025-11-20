@@ -362,3 +362,12 @@ A pesar de las **dificultades técnicas** —como incompatibilidades con MediaPi
 
 ![Image](https://github.com/user-attachments/assets/29de0ada-e716-4540-8783-6775fe7bcdd7)
  > `Prueba de segmentacion sin mediapipe (raspberri)`
+
+------------
+
+
+## 🌐 ¿Qué es Kubernetes?
+
+Kubernetes (también conocido como K8s) es una plataforma open-source diseñada para automatizar el despliegue, escalado, y administración de aplicaciones en contenedores.
+Fue desarrollada originalmente por Google y ahora es mantenida por la Cloud Native Computing Foundation (CNCF).
+Su objetivo principal es facilitar la gestión de contenedores en entornos de producción, especialmente cuando son muchos.
