@@ -185,3 +185,26 @@ Este punto del taller permitió construir un **sistema completo de detección y 
 ---
 
 A pesar de las **dificultades técnicas** —como incompatibilidades con MediaPipe, problemas con rutas, modelos no compatibles y restricciones de Roboflow— se logró un sistema bastante **funcional**, y capaz de ejecutarse en **tiempo real**.
+
+---
+
+![Image](https://github.com/user-attachments/assets/0f23104d-93a5-4a97-887c-118ec77487c5)
+ > `Entrenamiento YOLO`
+
+![Image](https://github.com/user-attachments/assets/f83b8738-08da-47d6-b4db-55774eac1ff9)
+ > `Prueba de segmentacion con mediapipe (multimetro)`
+
+![Image](https://github.com/user-attachments/assets/4851f70f-0183-4fd9-a7d3-3c4030ef6c43)
+ > `Prueba de segmentacion con mediapipe (osciloscopio)`
+
+![Image](https://github.com/user-attachments/assets/5de7dfc2-6a6e-4e39-9058-f1e921c33c84)
+ > `Prueba de segmentacion con mediapipe (raspberri)`
+
+![Image](https://github.com/user-attachments/assets/371ebc86-4898-4bbc-a61f-40b61f6e3428)
+ > `Prueba de segmentacion sin mediapipe (osciloscopio)`
+
+![Image](https://github.com/user-attachments/assets/b9b75cfe-5277-48ed-a7d7-1244d02e813f)
+ > `Prueba de segmentacion sin mediapipe (sin osciloscopio)`
+
+![Image](https://github.com/user-attachments/assets/29de0ada-e716-4540-8783-6775fe7bcdd7)
+ > `Prueba de segmentacion sin mediapipe (sin osciloscopio)`
