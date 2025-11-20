@@ -378,3 +378,17 @@ Su objetivo principal es facilitar la gestión de contenedores en entornos de pr
 
 Kubernetes es un orquestador de contenedores que se encarga de distribuir, ejecutar, monitorear y escalar aplicaciones que están empaquetadas en contenedores (como Docker).
 Permite administrar múltiples contenedores de forma coordinada, confiable y automatizada.
+
+------------
+
+## 🚀 Características principales de Kubernetes
+
+| 🌟 Característica                           | 📘 Descripción                                                                                       |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| **Escalabilidad automática (Auto-Scaling)** | Kubernetes es capaz de aumentar o disminuir el número de contenedores según la carga de trabajo.     |
+| **Autorreparación (Self-Healing)**          | Reinicia contenedores fallidos, reemplaza los dañados y evita mandar tráfico a los que no funcionan. |
+| **Balanceo de carga**                       | Distribuye tráfico entre contenedores de forma eficiente para evitar sobrecargas.                    |
+| **Despliegues continuos (Rolling Updates)** | Permite actualizar aplicaciones sin detener el servicio.                                             |
+| **Gestión declarativa**                     | Todo se maneja con archivos YAML donde defines *qué quieres* que pase, y Kubernetes se encarga.      |
+| **Portabilidad**                            | Funciona en la nube, servidores locales o entornos híbridos.                                         |
+| **Escalado horizontal**                     | Fácilmente puedes tener más instancias de tus aplicaciones según lo necesites.                       |
