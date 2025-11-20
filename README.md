@@ -200,7 +200,7 @@ A pesar de las **dificultades técnicas** —como incompatibilidades con MediaPi
  > `Prueba de segmentacion sin mediapipe (osciloscopio)`
 
 ![Image](https://github.com/user-attachments/assets/b9b75cfe-5277-48ed-a7d7-1244d02e813f)
- > `Prueba de segmentacion sin mediapipe (sin osciloscopio)`
+ > `Prueba de segmentacion sin mediapipe (multimetro)`
 
 ![Image](https://github.com/user-attachments/assets/29de0ada-e716-4540-8783-6775fe7bcdd7)
- > `Prueba de segmentacion sin mediapipe (sin osciloscopio)`
+ > `Prueba de segmentacion sin mediapipe (raspberri)`
