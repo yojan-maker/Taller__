@@ -406,3 +406,19 @@ Kubernetes se usa ampliamente en entornos modernos de desarrollo y producción:
 - 🏭 Automatización de despliegue en entornos empresariales
 - 📡 Aplicaciones distribuidas a gran escala
 - 🧠 Sistemas de inteligencia artificial y análisis de datos
+
+------------
+
+## 📦 Relación entre Kubernetes y los Contenedores
+
+Kubernetes no crea contenedores, sino que los orquesta.
+
+| Contenedores 🐳                                           | Kubernetes ⚙️                                               |
+| --------------------------------------------------------- | ----------------------------------------------------------- |
+| Aíslan aplicaciones empacadas con todas sus dependencias. | Administra, distribuye y escala esos contenedores.          |
+| Ejemplo: Docker                                           | Funciona sobre Docker u otros runtimes (containerd, CRI-O). |
+| Solo ejecutan la app.                                     | Se encargan del *cómo*, *cuándo* y *dónde* ejecutarlas.     |
+
+En pocas palabras:
+
+Docker crea los contenedores; Kubernetes los organiza, automatiza y escala.
