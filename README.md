@@ -543,3 +543,36 @@ Cuando un usuario se conecta:
 | **Docker**                | Empaquetamiento del servidor en una imagen ejecutable |
 | **Kubernetes (Minikube)** | Orquestación y despliegue escalable con réplicas      |
 | **NodePort Service**      | Exponer el juego hacia la red local                   |
+
+------------
+
+### 🏗️ Arquitectura del despliegue
+
+El flujo completo fue:
+
+1. ✔️ Desarrollo del servidor en Node.js
+2. ✔️ Creación de una imagen Docker
+3. ✔️ Despliegue en Kubernetes mediante un Deployment con 3 réplicas
+4. ✔️ Exposición del servicio mediante un NodePort
+5. ✔️ Acceso desde el navegador al juego mediante la IP del Minikube
+
+La arquitectura final luce así:
+
+               +-------------------+
+               |   Client/Browser  |
+               +---------+---------+
+                         |
+                         | Socket.IO / HTTP
+                         |
+           +-------------+--------------+
+           |      NodePort Service      |
+           |        (juego-service)     |
+           +-------------+--------------+
+                         |
+       -----------------------------------------
+       |                |                 |
+    +------+       +--------+        +--------+
+    | Pod  |       |  Pod   |        |  Pod   |
+    | #1   |       |  #2    |        |  #3    |
+    +------+       +--------+        +--------+
+    (Servidor)     (Servidor)        (Servidor)
