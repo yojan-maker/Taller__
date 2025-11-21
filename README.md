@@ -517,3 +517,18 @@ Desde la carpeta mi-app/:
 ### 🎮 Implementación del Servidor Multijugador con Kubernetes
 
 En esta parte del proyecto se desarrolló y desplegó un servidor de juego multijugador en tiempo real utilizando Node.js, Socket.IO, Docker y Kubernetes (Minikube). El objetivo fue demostrar cómo un servicio interactivo puede escalar en múltiples réplicas dentro de un clúster.
+
+------------
+
+### 🧩 ¿Cómo funciona el juego?
+
+El servidor implementa un juego extremadamente simple donde cada cliente representa un jugador que posee una posición (x, y) dentro de un plano básico.
+Cuando un usuario se conecta:
+
+- Se le asigna un ID único generado por Socket.IO.
+- Se registra su posición inicial.
+- El servidor escucha los movimientos enviados por el cliente (move).
+- Actualiza la información global de todos los jugadores.
+- Envía el nuevo estado a todos los clientes conectados.
+
+Esta arquitectura permite ver en tiempo real cómo múltiples usuarios interactúan en un mismo entorno compartido.
