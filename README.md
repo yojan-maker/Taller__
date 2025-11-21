@@ -576,3 +576,12 @@ La arquitectura final luce así:
     | #1   |       |  #2    |        |  #3    |
     +------+       +--------+        +--------+
     (Servidor)     (Servidor)        (Servidor)
+
+------------
+
+
+### 🚀 Resultado
+
+Después del despliegue, el servicio quedó accesible mediante la URL generada por Minikube:
+
+http://<minikube-ip>:30080
