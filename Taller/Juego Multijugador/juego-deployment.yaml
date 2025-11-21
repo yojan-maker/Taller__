@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: juego-multijugador
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: juego
+  template:
+    metadata:
+      labels:
+        app: juego
+    spec:
+      containers:
+      - name: servidor-juego
+        image: juego-multijugador:v1
+        ports:
+        - containerPort: 3000
