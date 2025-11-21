@@ -510,3 +510,10 @@ Desde la carpeta mi-app/:
 |        **Capa (layer)** | Cada instrucción del Dockerfile crea una capa; Docker las cachea para acelerar builds.                         |
 |   **Contexto de build** | Archivos que Docker puede acceder durante `docker build` (normalmente la carpeta donde ejecutas el comando).   |
 |       **.dockerignore** | Archivo que evita que archivos innecesarios entren al contexto de build (similar a `.gitignore`).              |
+
+------------
+
+
+### 🎮 Implementación del Servidor Multijugador con Kubernetes
+
+En esta parte del proyecto se desarrolló y desplegó un servidor de juego multijugador en tiempo real utilizando Node.js, Socket.IO, Docker y Kubernetes (Minikube). El objetivo fue demostrar cómo un servicio interactivo puede escalar en múltiples réplicas dentro de un clúster.
