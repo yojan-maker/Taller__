@@ -531,4 +531,16 @@ Cuando un usuario se conecta:
 - Actualiza la información global de todos los jugadores.
 - Envía el nuevo estado a todos los clientes conectados.
 
+------------
+
+🛠️ Tecnologías usadas
+
+| Tecnología                | Uso en el proyecto                                    |
+| ------------------------- | ----------------------------------------------------- |
+| **Node.js**               | Construcción del servidor del juego                   |
+| **Express**               | Manejo de rutas HTTP básicas                          |
+| **Socket.IO**             | Comunicación en tiempo real entre jugadores           |
+| **Docker**                | Empaquetamiento del servidor en una imagen ejecutable |
+| **Kubernetes (Minikube)** | Orquestación y despliegue escalable con réplicas      |
+| **NodePort Service**      | Exponer el juego hacia la red local                   |
 Esta arquitectura permite ver en tiempo real cómo múltiples usuarios interactúan en un mismo entorno compartido.
