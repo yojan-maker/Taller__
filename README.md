@@ -365,6 +365,7 @@ A pesar de las **dificultades técnicas** —como incompatibilidades con MediaPi
 
 ------------
 
+## 3. Kubernetes y Desṕliegues de juego multijugador
 
 ## 🌐 ¿Qué es Kubernetes?
 
