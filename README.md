@@ -641,3 +641,18 @@ En nuestro caso:
 - Socket.IO actúa como un manejador de concurrencia, asegurando que los eventos se procesen ordenadamente.
 - Aunque no hay un semáforo físico, sí existe un control del flujo de eventos, lo cual es equivalente conceptualmente.
 http://<minikube-ip>:30080
+
+------------
+
+### 📌 Conclusión
+
+Fue posible construir y desplegar exitosamente el servidor multijugador, y comprobar que Kubernetes ejecuta múltiples réplicas del mismo servicio.
+
+Sin embargo, debido a que el ambiente se probó únicamente desde un solo computador, no fue posible visualizar múltiples jugadores conectados simultáneamente desde diferentes dispositivos. Para probar la interacción real entre varios jugadores, sería necesario que otros dispositivos se conecten dentro de la misma red local al servicio expuesto por Minikube.
+
+Aun así, la práctica permitió comprender:
+
+- Cómo Docker empaqueta un proyecto Node.js
+- Cómo Kubernetes escala servicios mediante réplicas
+- Cómo exponer aplicaciones interactivas con NodePort
+- Y cómo manejar comunicación en tiempo real con Socket.IO
