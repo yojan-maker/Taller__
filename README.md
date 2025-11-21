@@ -533,7 +533,7 @@ Cuando un usuario se conecta:
 
 ------------
 
-🛠️ Tecnologías usadas
+### 🛠️ Tecnologías usadas
 
 | Tecnología                | Uso en el proyecto                                    |
 | ------------------------- | ----------------------------------------------------- |
@@ -543,4 +543,3 @@ Cuando un usuario se conecta:
 | **Docker**                | Empaquetamiento del servidor en una imagen ejecutable |
 | **Kubernetes (Minikube)** | Orquestación y despliegue escalable con réplicas      |
 | **NodePort Service**      | Exponer el juego hacia la red local                   |
-Esta arquitectura permite ver en tiempo real cómo múltiples usuarios interactúan en un mismo entorno compartido.
