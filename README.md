@@ -1,4 +1,12 @@
-# 📝 README — Punto: Simulación de robots SoftBank con `humanoid-gym` + Docker
+# 📝 README — Punto: Simulación de robots SoftBank con `humanoid-gym` + Docker y Proyecto de Simulación, Segmentación y Despliegue en Kubernetes
+
+Este documento resume los tres puntos desarrollados en el taller:
+
+1. Simulación de robots SoftBank con humanoid-gym + Docker
+2. Desarrollo de un sistema de segmentación basado en YOLO
+3. Despliegue de un juego multijugador con Docker y Kubernetes
+
+Cada sección detalla lo que se intentó, el análisis técnico, los problemas encontrados, las soluciones implementadas y los resultados finales.
 
 ## 📌 Introducción
 
@@ -657,3 +665,12 @@ Aun así, la práctica permitió comprender:
 - Cómo Kubernetes escala servicios mediante réplicas
 - Cómo exponer aplicaciones interactivas con NodePort
 - Y cómo manejar comunicación en tiempo real con Socket.IO
+
+### 📚 Referencias
+
+- Kubernetes – ¿Qué es Kubernetes? Documentación oficial.
+  https://kubernetes.io/es/docs/concepts/overview/what-is-kubernetes/
+- Atlassian – Kubernetes vs Docker: diferencias y casos de uso.
+  https://www.atlassian.com/es/microservices/microservices-architecture/kubernetes-vs-docker
+- ChatGPT – Conversación utilizada como apoyo para el desarrollo del proyecto.
+  https://chatgpt.com/share/691f60bc-9b08-800e-bed9-73588dc81165
