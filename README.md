@@ -584,4 +584,60 @@ La arquitectura final luce así:
 
 Después del despliegue, el servicio quedó accesible mediante la URL generada por Minikube:
 
+------------
+
+### 🧵🔒 Manejo de Concurrencia: Hilos, Sección Crítica, Semáforos y Mutex
+
+Aunque el servidor del juego fue desarrollado con Node.js, el cual maneja la concurrencia mediante un Event Loop y no con hilos tradicionales como C o Java, el sistema implementado sí aplica los mismos principios teóricos de programación concurrente, especialmente por la naturaleza multicliente del juego.
+Por ello en esta sección explicamos cómo los conceptos de hilos, semáforos, mutex y sección crítica se relacionan con el funcionamiento del servidor.
+
+#### 🧵 1. Hilos (Threads)
+
+En un servidor multijugador, es natural pensar en múltiples hilos atendiendo a varios jugadores al mismo tiempo.
+
+Aunque Node.js no usa hilos tradicionales para las solicitudes (usa el Event Loop), el efecto es similar:
+
+- Cada cliente conectado actúa como un flujo independiente de eventos.
+- Cada vez que un jugador envía una posición, se activa un evento del lado del servidor.
+- Node.js administra todos esos eventos como si fueran “micro-hilos cooperativos”.
+
+En términos conceptuales:
+
+| Concepto                  | Equivalente en el servidor                        |
+| ------------------------- | ------------------------------------------------- |
+| **Hilo**                  | Evento de Socket.IO por jugador                   |
+| **Ejecuciones paralelas** | Múltiples eventos `move` llegando al mismo tiempo |
+| **Atención concurrente**  | Múltiples clientes conectados simultáneamente     |
+
+#### 🔒 2. Sección crítica
+
+La sección crítica aparece cuando múltiples jugadores actualizan información compartida, en este caso:
+
+👉 El objeto global players
+Donde se guardan todas las posiciones de todos los jugadores.
+
+¿Por qué es sección crítica?
+
+- Varias conexiones (jugadores) pueden enviar movimientos al mismo tiempo.
+- Todos estos movimientos intentan modificar la misma estructura de datos compartida.
+- Si el acceso no se administra correctamente, podría generarse información inconsistente.
+
+Node.js evita este problema al ejecutar el Event Loop de manera secuencial, garantizando que solo una operación se ejecute a la vez, lo cual protege implícitamente la sección crítica.
+
+🚦 3. Semáforos y Mutex
+
+Aunque no se usan explícitamente (como en un lenguaje de bajo nivel), los conceptos sí aplican:
+
+🔐 Mutex
+
+Un mutex asegura acceso exclusivo a un recurso.
+En este servidor, el Event Loop funciona como un mutex global, ya que no permite que dos callbacks accedan simultáneamente a la variable compartida players.
+
+🚦 Semáforo
+
+Un semáforo controla cuántos hilos pueden acceder al mismo recurso.
+En nuestro caso:
+
+- Socket.IO actúa como un manejador de concurrencia, asegurando que los eventos se procesen ordenadamente.
+- Aunque no hay un semáforo físico, sí existe un control del flujo de eventos, lo cual es equivalente conceptualmente.
 http://<minikube-ip>:30080
